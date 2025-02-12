@@ -72,3 +72,34 @@ function averageWeeklyTemperature(readings: Temp[]) {
 
   return weeklyTemp / 7;
 }
+
+/*
+    4. Följande funktion kommer att presentera ett objekt i dom:en. 
+    Se om du kan göra det bättre. Inte bara presentationen räknas, även strukturer.
+    */
+type Product = {
+  name: string;
+  image: string;
+  price: number;
+  description: string;
+};
+
+const testProduct: Product = {
+  name: "Wireless Headphones",
+  image: "https://example.com/images/wireless-headphones.jpg",
+  price: 99.99,
+  description:
+    "High-quality wireless headphones with noise cancellation and long battery life.",
+};
+
+function showProduct(product: Product) {
+  let container = document.createElement("div");
+
+  container.innerHTML = `<h4>${product.name}</h4>
+  <img src="${product.image}" alt="${product.name}"/>
+        <strong>${product.price} USD</strong>
+        <p>${product.description}</p>`;
+  document.getElementById("app")?.appendChild(container);
+}
+
+showProduct(testProduct);
