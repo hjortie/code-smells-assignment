@@ -44,3 +44,31 @@ const elin = new Student("Elin", true, false);
 
 const elinStatus = getStudentStatus(elin);
 console.log(elinStatus);
+
+/*
+    3. Variabelnamn är viktiga. Kika igenom följande kod och gör om och rätt.
+    Det finns flera code smells att identifiera här. Vissa är lurigare än andra.
+    */
+
+class Temp {
+  constructor(
+    public location: string,
+    public date: Date,
+    public temperature: number
+  ) {}
+}
+
+function averageWeeklyTemperature(readings: Temp[]) {
+  const oneWeekAgo = Date.now() - 604800000;
+  const relevantReadings = readings.filter(
+    (reading) =>
+      reading.location === "Stockholm" && reading.date.getTime() > oneWeekAgo
+  );
+
+  const weeklyTemp = relevantReadings.reduce(
+    (sum, r) => sum + r.temperature,
+    0
+  );
+
+  return weeklyTemp / 7;
+}
