@@ -151,3 +151,43 @@ function concatenateStrings(words: string[]) {
 //testing:
 const testString = concatenateStrings(words);
 console.log(testString);
+
+/* 
+  7. Denna funktion skall kontrollera att en användare är över 20 år och göra någonting.
+      Det finns dock problem med denna typ av funktion. Vad händer när kraven ändras och
+      fler och fler parametrar behöver läggas till? T.ex. avatar eller adress. Hitta en bättre
+      lösning som är hållbar och skalar bättre. 
+  */
+interface User {
+  name: string;
+  birthDate: Date;
+  avatar: string;
+  email: string;
+  password: string;
+}
+
+function isAdult(birthDate: Date, minAge = 20): boolean {
+  const age = new Date().getFullYear() - birthDate.getFullYear();
+  return age >= minAge;
+}
+
+function createUser(user: User) {
+  if (!isAdult(user.birthDate)) {
+    console.log("Du är under 20 år!"); //line included to allow testing
+    return "Du är under 20 år!";
+  }
+  // insert logik för att skapa användare here
+  console.log("Nu är du en användare"); //line included to allow testing
+}
+
+//testing
+let date: Date = new Date("1995-04-06");
+const elinUser: User = {
+  name: "Elin",
+  birthDate: date,
+  avatar: "image.jpg",
+  email: "mejl",
+  password: "passW123",
+};
+
+createUser(elinUser);
