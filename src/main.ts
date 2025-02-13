@@ -14,9 +14,8 @@ function getLength(jumpings: number[]): number {
 
 //testing
 const jumpings = [1, 4, 56, 32, 7];
-const jumpSum = getLength(jumpings);
 
-console.log(jumpSum);
+console.log(getLength(jumpings));
 
 /*
     2. I detta exempel har vi fokuserat på if-statements. Se om du kan göra exemplet bättre!
@@ -31,7 +30,7 @@ class Student {
 }
 
 function getStudentStatus(student: Student): string {
-  if (student.handedInOnTime === true) {
+  if (student.handedInOnTime) {
     student.passed = true;
   }
 
@@ -46,8 +45,7 @@ function getStudentStatus(student: Student): string {
 const elin = new Student("Elin", true, false);
 const lukas = new Student("Lukas", false, false);
 
-const elinStatus = getStudentStatus(elin);
-console.log(elinStatus);
+console.log(getStudentStatus(elin));
 
 /*
     3. Variabelnamn är viktiga. Kika igenom följande kod och gör om och rätt.
@@ -149,8 +147,7 @@ function concatenateStrings(words: string[]) {
 }
 
 //testing:
-const testString = concatenateStrings(words);
-console.log(testString);
+console.log(concatenateStrings(words));
 
 /* 
   7. Denna funktion skall kontrollera att en användare är över 20 år och göra någonting.
