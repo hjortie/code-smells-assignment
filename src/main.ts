@@ -41,6 +41,7 @@ function getStudentStatus(student: Student): string {
 }
 
 const elin = new Student("Elin", true, false);
+const lukas = new Student("Lukas", false, false);
 
 const elinStatus = getStudentStatus(elin);
 console.log(elinStatus);
@@ -103,3 +104,30 @@ function showProduct(product: Product) {
 }
 
 showProduct(testProduct);
+
+/*
+    5. Följande funktion kommer presentera studenter. Men det finns ett antal saker som 
+    går att göra betydligt bättre. Gör om så många som du kan hitta!
+    */
+function presentStudents(students: Student[]) {
+  students.forEach((student) => {
+    let container = document.createElement("div");
+    let checkbox = document.createElement("input");
+
+    checkbox.type = "checkbox";
+    container.innerHTML = `<h4>${student.name}</h4>
+    <span>Handed in on time:</span>`;
+
+    container.appendChild(checkbox);
+
+    if (student.handedInOnTime) {
+      checkbox.checked = true;
+    }
+
+    document.getElementById("app")?.appendChild(container);
+  });
+}
+
+const testStudents: Student[] = [elin, lukas];
+
+presentStudents(testStudents);
