@@ -11,6 +11,8 @@ function getLength(jumpings: number[]): number {
     (jumpDistanceSoFar, currentJump) => jumpDistanceSoFar + currentJump
   );
 }
+
+//testing
 const jumpings = [1, 4, 56, 32, 7];
 const jumpSum = getLength(jumpings);
 
@@ -40,6 +42,7 @@ function getStudentStatus(student: Student): string {
   }
 }
 
+//testing
 const elin = new Student("Elin", true, false);
 const lukas = new Student("Lukas", false, false);
 
@@ -85,14 +88,6 @@ type Product = {
   description: string;
 };
 
-const testProduct: Product = {
-  name: "Wireless Headphones",
-  image: "https://example.com/images/wireless-headphones.jpg",
-  price: 99.99,
-  description:
-    "High-quality wireless headphones with noise cancellation and long battery life.",
-};
-
 function showProduct(product: Product) {
   let container = document.createElement("div");
 
@@ -102,6 +97,15 @@ function showProduct(product: Product) {
         <p>${product.description}</p>`;
   document.getElementById("app")?.appendChild(container);
 }
+
+//testing
+const testProduct: Product = {
+  name: "Wireless Headphones",
+  image: "https://example.com/images/wireless-headphones.jpg",
+  price: 99.99,
+  description:
+    "High-quality wireless headphones with noise cancellation and long battery life.",
+};
 
 showProduct(testProduct);
 
@@ -128,6 +132,22 @@ function presentStudents(students: Student[]) {
   });
 }
 
+//testing
 const testStudents: Student[] = [elin, lukas];
-
 presentStudents(testStudents);
+
+/*
+    6. Skriv en funktion som skall slå ihop följande texter på ett bra sätt:
+    Lorem, ipsum, dolor, sit, amet
+    Exemplet under löser problemet, men inte speciellt bra. Hur kan man göra istället?
+    */
+
+let words: string[] = ["Lorem", "ipsum", "dolor", "sit", "amet"];
+
+function concatenateStrings(words: string[]) {
+  return words.join(" ");
+}
+
+//testing:
+const testString = concatenateStrings(words);
+console.log(testString);
